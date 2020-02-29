@@ -3,7 +3,7 @@
 (function errorReporting(){
     
     //used for the name of the layer
-    const startTimeStamp = Date.now(); 
+    const layerId = "msg-layer-" + Date.now();
 
     /**
      * Sound for the error message
@@ -28,15 +28,13 @@
     function createMsg(message,isError){
 
         //div which will contain the error message
-        const msgLayer = document.getElementById("msg-layer" + startTimeStamp);
-        const firstMessage = document.createElement("div");
-        const timeStamp = Date.now();
+        const msgLayer = document.getElementById(layerId);
+        const messageDiv = document.createElement("div");
 
         //Let's set the CSS and text of the just created div
-        firstMessage.setAttribute("id","msg-" + timeStamp);
         const colorToUse = isError ? "#ff0000" : "#ffff00";
-        firstMessage.setAttribute('style',"position:relative; \
-            width:100%;height:auto; padding:10px; z-index:100; \
+        messageDiv.setAttribute('style',"position:relative; \
+            width:100%;height:auto; padding:10px; z-index:1000; \
             background:" + colorToUse + "; \
             top:0; left:0;"
         );
@@ -44,27 +42,25 @@
 
         //I append the div with the error to the main div 
         //that contains all the warning messages
-        firstMessage.appendChild(content);
-        msgLayer.appendChild(firstMessage);
+        messageDiv.appendChild(content);
+        msgLayer.appendChild(messageDiv);
         errorSound();
-
+        
         //After 2 seconds, we remove the message from the page
         setTimeout(function removeFirstMessage(){
-            const generatedMsg = document.getElementById('msg-' + timeStamp);
-            generatedMsg.style.opacity = 0;
-            generatedMsg.style.transition = "opacity " + 2 + "s";
-            generatedMsg.style.WebkitTransition = "opacity " + 2 + "s";
-            generatedMsg.remove();
+            messageDiv.style.opacity = 0;
+            messageDiv.style.transition = "opacity " + 2 + "s";
+            messageDiv.style.WebkitTransition = "opacity " + 2 + "s";
+            messageDiv.remove();
         },2000);
-
-    }
-
-
+        
+    }  
+    
     window.onload = function firstMessage(){
 
         //I create the div that will contain all the error messages
         const node = document.createElement("div");
-        node.setAttribute("id", "msg-layer" + startTimeStamp);
+        node.setAttribute("id", layerId);
         node.setAttribute("style", "position:absolute; \
             width:100%;height:auto;z-index:1000; \
             top:0; left:0;"
