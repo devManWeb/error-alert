@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error Alert example page</title>
+        <meta charset="utf-8">
+        <script src="error-alert.js"></script>
+    </head>
+    <body>
+        <h1>Error buttons</h1>
+        <p>Press any of this buttons to generate an error</p>
+        <button onclick="error1()">Error1</button>
+        <button onclick="error2()">Error1</button>
+        <button onclick="error3()">Error3</button>
+        <button onclick="error4()">Error4</button>
+        <button onclick="error5()">Error5</button>
+        <button onclick="error6()">Error6</button>
+        <button onclick="error7()">Error7</button>
+        <script>
+            
+            function error2(){
+                throw new InternalError("Example error");
+            }
+            function error3(){
+                throw new RangeError("Example error");
+            }
+            function error4(){
+                throw new ReferenceError("Example error");
+            }
+            function error5(){
+                throw new SyntaxError("Example error");
+            }
+            function error6(){
+                throw new TypeError("Example error");
+            }
+            function error7(){
+                throw new URIError("Example error");
+            }
+        </script>
+    </body>
+</html>
