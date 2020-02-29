@@ -1,6 +1,9 @@
 "use strict";
 
 (function errorReporting(){
+    
+    //used for the name of the layer
+    const startTimeStamp = Date.now(); 
 
     /**
      * Sound for the error message
@@ -25,7 +28,7 @@
     function createMsg(message,isError){
 
         //div which will contain the error message
-        const msgLayer = document.getElementById('msg-layer');
+        const msgLayer = document.getElementById("msg-layer" + startTimeStamp);
         const firstMessage = document.createElement("div");
         const timeStamp = Date.now();
 
@@ -61,7 +64,7 @@
 
         //I create the div that will contain all the error messages
         const node = document.createElement("div");
-        node.setAttribute("id", "msg-layer");
+        node.setAttribute("id", "msg-layer" + startTimeStamp);
         node.setAttribute("style", "position:absolute; \
             width:100%;height:auto;z-index:1000; \
             top:0; left:0;"
