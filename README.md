@@ -1,6 +1,6 @@
 # error-alert
 
-An experimental JS library to show error messages directly on the page, without opening the console.
+An experimental JS library to show error and other messages directly on the page, without opening the console.
 
 Error-alert.js also shows console.log, console.warn and console.error messages.
 
