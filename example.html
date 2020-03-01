@@ -17,7 +17,12 @@
         <button onclick="error7()">Error7</button>
         <p>Press any of this buttons to generate a generic alert</p>
         <button onclick="alert1()">Generic</button>
+        <button onclick="alert2()">Console log</button>
+        <button onclick="alert3()">Console warn</button>
+        <button onclick="alert4()">Console error</button>
         <script>
+
+            "use strict";
             
             function error2(){
                 throw new InternalError("Example error");
@@ -39,7 +44,16 @@
             }
 
             function alert1(){
-                errorAlert.genericMsg("Example of a message");
+                errorAlert.genericMsg("Example of a message","#d3d3d3");
+            }
+            function alert2(){
+                console.log("Example of a message");
+            }
+            function alert3(){
+                console.warn("Example of a message");
+            }
+            function alert4(){
+                console.error("Example of a message");
             }
         </script>
     </body>

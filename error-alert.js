@@ -75,6 +75,7 @@ function closure(){
         
     }  
     
+    //first message after page load
     window.onload = function firstMessage(){
 
         //I create the div that will contain all the error messages
@@ -93,18 +94,48 @@ function closure(){
         );
     }
 
+    //messages on JS errors
     window.onerror = function alertUser(error) { 
         createMsg(error,"#ff0000");
     };
 
 
+    //console.log messages will also be shown (strings only)
+    const oldLogFx = console.log;
+    console.log = function (...args) {
+        const msgToDisplay = args.filter(function(elem){
+            return typeof(elem) === "string";
+        });
+        createMsg(msgToDisplay,"#d3d3d3");
+        oldLogFx.apply(console, arguments);
+    };
+
+    //console.warn messages will also be shown (strings only)
+    const oldWarnFx = console.warn;
+    console.warn = function (...args) {
+        const msgToDisplay = args.filter(function(elem){
+            return typeof(elem) === "string";
+        });
+        createMsg(msgToDisplay,"#ffff00");
+        oldWarnFx.apply(console, arguments);
+    };
+
+    //console.error messages will also be shown (strings only)
+    const oldErrorFx = console.error;
+    console.error = function (...args) {
+        const msgToDisplay = args.filter(function(elem){
+            return typeof(elem) === "string";
+        });
+        createMsg(msgToDisplay,"#ff0000");
+        oldErrorFx.apply(console, arguments);
+    };
+
 
     return {
-        genericMsg : function (yourMsg){
-            createMsg(yourMsg,"#d3d3d3");
-        },
-        genericMsg : function (yourMsg){
-            createMsg(yourMsg,"#d3d3d3");
+
+        //generic function (clone of createMsg)
+        genericMsg : function (yourMsg,desiredColor){
+            createMsg(yourMsg,desiredColor);
         }
     }
 
