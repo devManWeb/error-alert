@@ -6,7 +6,7 @@
         <script src="error-alert.js"></script>
     </head>
     <body>
-        <h1>Error buttons</h1>
+        <h1>Error and alert buttons</h1>
         <p>Press any of this buttons to generate an error</p>
         <button onclick="error1()">Error1</button>
         <button onclick="error2()">Error1</button>
@@ -15,6 +15,8 @@
         <button onclick="error5()">Error5</button>
         <button onclick="error6()">Error6</button>
         <button onclick="error7()">Error7</button>
+        <p>Press any of this buttons to generate a generic alert</p>
+        <button onclick="alert1()">Generic</button>
         <script>
             
             function error2(){
@@ -34,6 +36,10 @@
             }
             function error7(){
                 throw new URIError("Example error");
+            }
+
+            function alert1(){
+                errorAlert.genericMsg("Example of a message");
             }
         </script>
     </body>
