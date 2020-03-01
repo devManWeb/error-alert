@@ -5,3 +5,7 @@ An experimental JS library to show error and other messages directly on the page
 Error-alert.js also shows console.log, console.warn and console.error messages.
 
 This library is for use in development environments only.
+
+## License
+
+This software is available under the MIT license.
