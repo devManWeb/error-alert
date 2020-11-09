@@ -1,0 +1,17 @@
+{
+  "name": "error-alert-master",
+  "version": "1.0.0",
+  "description": "An experimental JS library to show error and other messages directly on the page, without opening the console.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "build": "tsc --watch & nodemon dist"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.0.5"
+  }
+}
